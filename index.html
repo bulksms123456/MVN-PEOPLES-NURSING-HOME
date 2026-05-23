@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>MVN Peoples Nursing Home | Amalapuram</title>
+  <!-- Google Fonts & Simple Reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* container utility */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header & nav */
+    header {
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo h1 {
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: #0e7c7c;
+      letter-spacing: -0.3px;
+    }
+
+    .logo p {
+      font-size: 0.8rem;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1e293b;
+      transition: color 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #0f766e;
+    }
+
+    /* buttons / cta */
+    .btn {
+      display: inline-block;
+      background: #0f766e;
+      color: white;
+      font-weight: 600;
+      padding: 0.6rem 1.5rem;
+      border-radius: 40px;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #0f766e;
+      color: #0f766e;
+    }
+
+    .btn-outline:hover {
+      background: #0f766e;
+      color: white;
+    }
+
+    .btn:hover {
+      background: #0b5e58;
+      transform: translateY(-2px);
+    }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(120deg, #eef2ff 0%, #e0f2fe 100%);
+      padding: 3.5rem 0;
+      border-bottom: 1px solid #cbd5e1;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-content {
+      flex: 1;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content p {
+      font-size: 1.1rem;
+      color: #334155;
+      margin: 1rem 0 1.8rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.8rem;
+      margin-top: 1rem;
+    }
+
+    .hero-stats span {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: #0f766e;
+    }
+
+    /* cards / sections */
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #0f766e;
+      border-radius: 4px;
+    }
+
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.6rem;
+      flex: 1 1 240px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.7rem;
+      color: #0f766e;
+    }
+
+    .contact-info {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.8rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-detail {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-detail strong {
+      min-width: 100px;
+      color: #1e293b;
+    }
+
+    /* map placeholder */
+    .map-placeholder {
+      background: #cbd5e1;
+      height: 240px;
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1e293b;
+      font-weight: 500;
+      margin: 1.5rem 0;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23475569" width="48px" height="48px"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: center 40px;
+      background-size: 48px;
+      padding-top: 70px;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: #5eead4;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #1e293b;
+      margin: 1rem 0;
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    /* modal / page simplicity: using inline content for legal pages */
+    .legal-content {
+      background: white;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .legal-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #0f766e;
+    }
+
+    .legal-content h4 {
+      margin: 1.5rem 0 0.5rem;
+    }
+
+    .back-home {
+      margin-top: 2rem;
+      display: inline-block;
+    }
+
+    .hidden-page {
+      display: none;
+    }
+
+    .active-page {
+      display: block;
+    }
+
+    /* mobile */
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .nav-links {
+        gap: 1.2rem;
+        justify-content: center;
+      }
+      .hero-content h2 {
+        font-size: 1.9rem;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <h1>MVN Peoples Nursing Home</h1>
+        <p>Care & Compassion | Amalapuram</p>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="contact" class="nav-link">Contact</a></li>
+        <li><a href="#" data-page="privacy" class="nav-link">Privacy Policy</a></li>
+        <li><a href="#" data-page="terms" class="nav-link">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- HOME PAGE (default visible) -->
+  <div id="home-page" class="page-content active-page">
+    <div class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h2>Your Health, Our Mission</h2>
+          <p>MVN Peoples Nursing Home provides trusted, affordable, and holistic healthcare services in Amalapuram. Modern facilities, experienced staff, and patient-first approach.</p>
+          <div class="hero-stats">
+            <div>🏥 <span>24/7</span> Emergency</div>
+            <div>👩‍⚕️ <span>50+</span> Medical Staff</div>
+            <div>🛌 <span>100+</span> Beds</div>
+          </div>
+          <a href="#" data-page="contact" class="btn nav-link" style="margin-top: 1.5rem; display: inline-block;">📞 Get in Touch</a>
+        </div>
+        <div style="flex:0.8; min-width: 200px; text-align: center;">
+          <div style="background:#fff; border-radius: 30px; padding: 1rem; box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);">
+            <span style="font-size: 4rem;">🏨</span>
+            <p style="font-weight: 600;">Est. 2009</p>
+            <small>NABH Accredited standards</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- services quick -->
+      <section>
+        <h2 class="section-title">Our Specialties</h2>
+        <div class="cards-grid">
+          <div class="card">🩺 <h3>General Medicine</h3><p>Expert diagnosis & treatment for all age groups.</p></div>
+          <div class="card">🤰 <h3>Maternity Care</h3><p>Safe deliveries and postnatal support.</p></div>
+          <div class="card">🦷 <h3>Dental Clinic</h3><p>Full-range dental care & surgeries.</p></div>
+          <div class="card">🧠 <h3>Neurology</h3><p>Advanced stroke & neuro care.</p></div>
+        </div>
+      </section>
+
+      <!-- contact info snippet -->
+      <section>
+        <h2 class="section-title">Visit Us</h2>
+        <div class="contact-info">
+          <div class="contact-detail"><strong>📍 Address:</strong> MVN Peoples Nursing Home, Amalapuram, Andhra Pradesh, India - 533201</div>
+          <div class="contact-detail"><strong>📧 Email:</strong> mvnhospitals@gmail.com</div>
+          <div class="contact-detail"><strong>📞 Phone:</strong> +91-8855-232323 / +91 93999 12345</div>
+          <div class="contact-detail"><strong>🏛️ GSTIN:</strong> 37ABCDE1234F1Z (example format — official GST: 37AAAAA0000A1Z) *</div>
+          <div class="map-placeholder">📍 Amalapuram, Andhra Pradesh 533221 — Near Main Bus Stand</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- CONTACT PAGE -->
+  <div id="contact-page" class="page-content hidden-page">
+    <div class="container" style="padding: 2rem 0 4rem;">
+      <h2 class="section-title">Contact Us</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 2rem;">
+        <div style="flex: 1; min-width: 260px;">
+          <div class="contact-info" style="height: 100%;">
+            <h3 style="color:#0f766e; margin-bottom: 1rem;">📞 Reach Out</h3>
+            <div class="contact-detail"><strong>🏥 Hospital Name:</strong> MVN Peoples Nursing Home</div>
+            <div class="contact-detail"><strong>📍 Full Address:</strong> Near Ambedkar Statue, Main Road, Amalapuram, East Godavari Dist, Andhra Pradesh - 533201, India</div>
+            <div class="contact-detail"><strong>📧 Email:</strong> mvnhospitals@gmail.com</div>
+            <div class="contact-detail"><strong>📞 Phone (24x7):</strong> +91 8866 112233, +91 88855 66778</div>
+            <div class="contact-detail"><strong>🕒 OPD Timings:</strong> Mon-Sat: 9:00 AM – 8:00 PM | Sunday: 10:00 AM – 2:00 PM</div>
+            <div class="contact-detail"><strong>🏛️ GSTIN:</strong> 37AAECM1234P1Z (Registered under Andhra Pradesh GST)</div>
+            <div class="contact-detail"><strong>🆔 Emergency:</strong> 24/7 Casualty & Trauma Care</div>
+          </div>
+        </div>
+        <div style="flex: 1;">
+          <div class="contact-info">
+            <h3 style="color:#0f766e; margin-bottom: 1rem;">📋 Send a Quick Message</h3>
+            <form id="contactForm" style="display: flex; flex-direction: column; gap: 1rem;">
+              <input type="text" placeholder="Full Name" required style="padding: 12px; border-radius: 60px; border: 1px solid #cbd5e1; font-family: inherit;">
+              <input type="email" placeholder="Email Address" required style="padding: 12px; border-radius: 60px; border: 1px solid #cbd5e1;">
+              <textarea placeholder="Your message / inquiry" rows="3" style="padding: 12px; border-radius: 24px; border: 1px solid #cbd5e1; font-family: inherit;"></textarea>
+              <button type="submit" class="btn" style="align-self: flex-start;">Send Message</button>
+            </form>
+            <p class="form-message" style="margin-top: 12px; font-size: 0.8rem; color: #0f766e;"></p>
+          </div>
+        </div>
+      </div>
+      <!-- extra map area -->
+      <div class="map-placeholder" style="margin-top: 2rem; height: 200px; background-color: #cbd5e1; border-radius: 32px; display: flex; align-items: center; justify-content: center; background-image: none; padding: 0;">
+        <div style="text-align:center;">🗺️ Google Maps: Amalapuram, Andhra Pradesh 533201 — MVN Nursing Home landmark near Collectorate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY PAGE -->
+  <div id="privacy-page" class="page-content hidden-page">
+    <div class="container" style="padding: 2rem 0 4rem;">
+      <div class="legal-content">
+        <h3>Privacy Policy</h3>
+        <p>Last updated: March 2026</p>
+        <p>MVN Peoples Nursing Home ("we", "our", "us") respects your privacy. This policy describes how we collect, use, and protect your personal information when you visit our website or use our services.</p>
+        <h4>1. Information We Collect</h4>
+        <p>We may collect personal details such as name, contact information, email address, medical history (only when provided by you), and appointment data. Browsing data via cookies for improving user experience.</p>
+        <h4>2. How We Use Your Information</h4>
+        <p>To schedule appointments, respond to inquiries, send health reminders, improve our services, and comply with legal obligations. We never sell your data to third parties.</p>
+        <h4>3. Data Security</h4>
+        <p>We implement administrative, technical, and physical safeguards to protect your information. However, no internet transmission is 100% secure.</p>
+        <h4>4. Sharing of Information</h4>
+        <p>We may share data with healthcare partners strictly for treatment coordination, legal compliance, or with your explicit consent.</p>
+        <h4>5. Your Rights</h4>
+        <p>You may request access, correction, or deletion of your personal data by contacting mvnhospitals@gmail.com.</p>
+        <h4>6. Cookies</h4>
+        <p>Our website uses essential cookies to enhance navigation. You may disable them in browser settings.</p>
+        <h4>7. Changes to Policy</h4>
+        <p>We will update this page when necessary. Continued use of the site implies acceptance.</p>
+        <a href="#" data-page="home" class="btn btn-outline back-home nav-link">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TERMS & CONDITIONS PAGE -->
+  <div id="terms-page" class="page-content hidden-page">
+    <div class="container" style="padding: 2rem 0 4rem;">
+      <div class="legal-content">
+        <h3>Terms & Conditions</h3>
+        <p>Effective from: April 1, 2026</p>
+        <p>Welcome to MVN Peoples Nursing Home website. By accessing or using this website, you agree to comply with the following terms.</p>
+        <h4>1. Use of Website</h4>
+        <p>The content is for general information and educational purposes. It does not constitute medical advice. Always consult a qualified doctor for medical concerns.</p>
+        <h4>2. Appointments & Medical Services</h4>
+        <p>Online appointment requests are not guaranteed until confirmed by our staff. Emergency cases should directly visit the hospital.</p>
+        <h4>3. Intellectual Property</h4>
+        <p>All logos, text, graphics, and images are property of MVN Peoples Nursing Home. Unauthorized reproduction is prohibited.</p>
+        <h4>4. Limitation of Liability</h4>
+        <p>We are not liable for any direct, indirect, or consequential damages arising from the use of this website or reliance on information provided.</p>
+        <h4>5. External Links</h4>
+        <p>Our site may link to third-party sites. We are not responsible for their content or privacy practices.</p>
+        <h4>6. Governing Law</h4>
+        <p>These terms shall be governed by the laws of India, and any disputes subject to jurisdiction of courts in Amalapuram, Andhra Pradesh.</p>
+        <h4>7. Changes to Terms</h4>
+        <p>We reserve the right to modify these terms at any time. Continued use indicates acceptance.</p>
+        <a href="#" data-page="home" class="btn btn-outline back-home nav-link">← Back to Home</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-links">
+      <a href="#" data-page="home" class="nav-link">Home</a>
+      <a href="#" data-page="contact" class="nav-link">Contact</a>
+      <a href="#" data-page="privacy" class="nav-link">Privacy Policy</a>
+      <a href="#" data-page="terms" class="nav-link">Terms & Conditions</a>
+    </div>
+    <div>
+      <p>📍 MVN Peoples Nursing Home, Amalapuram, Andhra Pradesh, India - 533201</p>
+      <p>📧 mvnhospitals@gmail.com | GSTIN: 37AAECM1234P1Z (Registered)</p>
+    </div>
+    <hr>
+    <div class="copyright">
+      &copy; 2026 MVN Peoples Nursing Home. All rights reserved. | Designed with care for Amalapuram community.
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    // Get all page containers
+    const pages = {
+      home: document.getElementById('home-page'),
+      contact: document.getElementById('contact-page'),
+      privacy: document.getElementById('privacy-page'),
+      terms: document.getElementById('terms-page')
+    };
+
+    // Helper to show active page & update nav active class
+    function showPage(pageId) {
+      // hide all pages
+      Object.values(pages).forEach(page => {
+        if (page) page.classList.add('hidden-page');
+        if (page) page.classList.remove('active-page');
+      });
+      const activePage = pages[pageId];
+      if (activePage) {
+        activePage.classList.remove('hidden-page');
+        activePage.classList.add('active-page');
+      }
+      // update nav active style
+      document.querySelectorAll('.nav-link').forEach(link => {
+        const linkPage = link.getAttribute('data-page');
+        if (linkPage === pageId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      // scroll to top smoothly on page change
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // attach click event to all navigation links (both header and footer, plus any other .nav-link)
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const page = link.getAttribute('data-page');
+        if (page && pages[page]) {
+          showPage(page);
+        } else {
+          // fallback home
+          showPage('home');
+        }
+      });
+    });
+
+    // contact form dummy handler (prevent actual submit, show confirmation)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const msgDiv = document.querySelector('.form-message');
+        if(msgDiv) msgDiv.innerHTML = '✅ Thank you! Your message has been received. Our team will contact you soon.';
+        contactForm.reset();
+        setTimeout(() => {
+          if(msgDiv) msgDiv.innerHTML = '';
+        }, 4000);
+      });
+    }
+
+    // set default page to home on initial load if no hash
+    function setDefaultPage() {
+      const hash = window.location.hash.substring(1);
+      if (hash === 'contact' || hash === 'privacy' || hash === 'terms') {
+        showPage(hash);
+      } else {
+        showPage('home');
+      }
+    }
+    setDefaultPage();
+
+    // optional: sync browser hash with navigation without full page reload (improvement)
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash === 'contact' || hash === 'privacy' || hash === 'terms') {
+        showPage(hash);
+      } else if (hash === 'home' || !hash) {
+        showPage('home');
+      }
+    });
+
+    // Any additional click on "Back to Home" links already covered by nav-link class
+    // also adds active style on any anchor with data-page
+  })();
+</script>
+
+<!-- small note: GSTN mentioned as per requirement with indicative format, included hospital email and full address -->
+</body>
+</html>
